@@ -176,4 +176,6 @@ function clearForm() {
   document.getElementById("messageInput").value = "";
 }
 
-
+function printResume() {
+  window.print();
+}
