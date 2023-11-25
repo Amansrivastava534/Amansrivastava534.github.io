@@ -11682,3 +11682,13 @@ pre .code {
   display: block;
   margin-top: 10px;
 }
+#snackbar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 15px;
+  background-color: #4CAF50; /* Green background color */
+  color: #fff; /* White text color */
+  z-index: 1;
+}
+

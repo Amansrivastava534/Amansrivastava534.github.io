@@ -137,7 +137,6 @@ function initMap() {
 }
 
 function sendEmail() {
-
   emailjs.init("Ewb4407R42VhLBD88");
 
   var templateParams = {
@@ -148,10 +147,33 @@ function sendEmail() {
 
   emailjs.send("service_pz74u0e", "template_ssx72ch", templateParams)
     .then(function(response) {
-      console.log("Email sent successfully:", response);
-      // Add any success message or redirect here
+      // Success: Display snackbar and refresh input data
+      showSnackbar("Email sent successfully!");
+      clearForm();
     }, function(error) {
-      console.log("Error sending email:", error);
+      // Error: Display snackbar with the error message
+      showSnackbar("Error sending email: " + error);
       // Handle the error, e.g., display an error message to the user
     });
 }
+
+function showSnackbar(message) {
+  var snackbarText = document.getElementById("snackbar-text");
+  snackbarText.textContent = message;
+
+  var snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+
+  setTimeout(function() {
+    snackbar.className = snackbar.className.replace("show", "");
+  }, 1000); // Hide after 3 seconds
+}
+
+function clearForm() {
+  // Clear input fields
+  document.getElementById("nameInput").value = "";
+  document.getElementById("emailInput").value = "";
+  document.getElementById("messageInput").value = "";
+}
+
+
