@@ -135,3 +135,23 @@ function initMap() {
       ]
     });
 }
+
+function sendEmail() {
+
+  emailjs.init("Ewb4407R42VhLBD88");
+
+  var templateParams = {
+    from_name: document.getElementById("nameInput").value,
+    from_email: document.getElementById("emailInput").value,
+    message: document.getElementById("messageInput").value
+  };
+
+  emailjs.send("service_pz74u0e", "template_ssx72ch", templateParams)
+    .then(function(response) {
+      console.log("Email sent successfully:", response);
+      // Add any success message or redirect here
+    }, function(error) {
+      console.log("Error sending email:", error);
+      // Handle the error, e.g., display an error message to the user
+    });
+}
